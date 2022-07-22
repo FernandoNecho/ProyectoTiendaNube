@@ -30,3 +30,13 @@
 .menu>a:hover{
   background-color: transparent;
 }
+
+/**********Imagen Carrito Compra*********/
+.imgLogo{
+  height: auto;
+  width: 3rem;
+}
+
+#h2{
+  color: black;
+}

@@ -1,4 +1,5 @@
 import React from "react";
+import CartWidget from "./CartWidget";
 import Title from "./Title";
 
 const Navbar = ()=>{
@@ -6,6 +7,7 @@ const Navbar = ()=>{
         <>
             <Title/>
             <div className="menu">
+                <CartWidget/>
                 <a href="#">Home</a>
                 <a href="#">Remeras</a>
                 <a href="#">Pantalones</a>
