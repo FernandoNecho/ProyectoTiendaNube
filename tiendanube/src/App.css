@@ -40,3 +40,44 @@
 #h2{
   color: black;
 }
+
+/*************boton Add Cart************/
+
+.addCart{
+  width: 10vw;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1rem;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.countItem{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.countItem button{
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+
+.countItem p{
+  text-align: center;
+  color: red;
+  font-weight: bold;
+}
+
+.addBtn{
+  text-align: center;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0.5rem;
+}

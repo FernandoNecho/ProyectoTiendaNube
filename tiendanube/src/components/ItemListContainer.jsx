@@ -1,3 +1,5 @@
+import ItemCount from "./ItemCount";
+
 const titleStyle = {
     color: 'white',
     background: "blue",
@@ -8,7 +10,10 @@ const titleStyle = {
 
 const ItemListContainer=(props)=>{
     return(
-    <h2 style={titleStyle}>{props.saludo}</h2>
+      <>
+        <h2 style={titleStyle}>{props.saludo}</h2>
+        <ItemCount stock={5} initial={1} /> 
+      </>
     )
     
 }
