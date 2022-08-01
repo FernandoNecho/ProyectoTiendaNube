@@ -3,8 +3,8 @@
 :root{
   --main-font: sans-serif;
   --font-size: 16px;
-  --main-color: orangered;
-  --second-color: #222;
+  --main-color: grey;
+  --second-color: aqua;
   --main-modal-color: rgba(255, 68, 0, 0.85);
   --second-modal-color: rgba(34,34,34,0.85);
   --container-width: 1200px;
@@ -43,22 +43,39 @@ img{
 
 /*********Component Nav*******/
 .menu{
-  display: flex;
-  flex-direction: row;
+  display:flex;
+  flex-direction:column;
   justify-content: center;
   background-color: aqua;
 }
 
-.menu>a{
+.buyCart{
+  display: grid;
+  grid-template-columns: 9fr 1fr;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+}
+.menuRef{
+  width: 100%;
+  background-color: rgb(66, 181, 209);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+.menuRef>*{
   text-decoration: none;
   color: black;
   padding: 0.5rem;
   font-size: 1.2rem;
-  background-color: aquamarine;
+  border-bottom: 3px solid transparent;
 }
 
-.menu>a:hover{
-  background-color: transparent;
+
+
+.menuRef>*:hover{
+  border-bottom: 3px solid white;
 }
 
 /**********Imagen Carrito Compra*********/
@@ -74,11 +91,11 @@ img{
 /*************boton Add Cart************/
 
 .addCart{
-  width: 10vw;
+  width: 20vw;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 1rem;
-  border: 1px solid black;
+  margin-top: 4rem;
+  
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -87,35 +104,56 @@ img{
 .countItem{
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
+  border: 1px solid black;
+  border-radius: 4rem;
 }
 
 .countItem button{
+  width: 3.3rem;
+  height: 3.3rem;
   padding: 0.5rem;
   font-size: 1rem;
-}
-
-.countItem p{
-  text-align: center;
-  color: red;
+  border-radius: 50%;
+  background-color: black;
+  color: white;
+  font-size: 1.4rem;
   font-weight: bold;
 }
 
+.countItem button:hover, .addBtn:hover{
+  background-color: #222;
+}
+.countItem p{
+  text-align: center;
+  color: black;
+  font-weight: bold;
+ 
+}
+
 .addBtn{
+  width: 100%;
   text-align: center;
   padding: 0.5rem;
   display: flex;
   justify-content: center;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 0.5rem;
+  margin-top: 4rem;
+  background-color: black;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 4rem;
 }
+
 
 /*********Item Productos*******************/
 .cards{
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 10fr));
+  grid-template-columns: repeat(auto-fit, minmax(350px, 10fr));
+  grid-template-rows: auto;
 }
 
 .card{
@@ -123,19 +161,88 @@ img{
   color: var(--main-color);
   overflow: hidden;
   transition: all 0.3s ease-out;
+  margin-bottom: 2.5rem;
 }
 
 
 .imgCard{
   width: 100%;
-  height: auto;
+  max-height: 300px;
 }
 
-.card img:hover{
-  transform: scale(1.1);
-  transition: all 0.3s ease-out;
+.card:hover{
+  box-shadow: 2px 2px 2px 1.5px rgba(0, 0, 0, 0.4);
 }
 .card figcaption{
+  padding: .8rem;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.price{
+  text-align: center;
+  background-color: rgb(66, 181, 209);
+  width: 60%;
+  padding: 0.5rem;
+  margin-left: auto;
+  margin-right: auto;
+  color: white;
+  
+}
+
+.detail{
+  background-color: white;
+  padding: 0.5rem;
+  border: 1px solid var(--main-color);
+  border-radius: 1.5rem;
+  cursor: pointer;
+  color: black;
+  box-shadow: 2px 2px 2px 1.5px rgba(0, 0, 0, 0.4);
+}
+
+.detail:hover{
+  box-shadow: none;
+}
+
+
+/******Item detail Container*****/
+.itemContainer{
+  width: 60vw;
+  margin: 4rem auto 2rem auto;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: auto;
+  justify-items: center;
+  border: 1px solid black;
+  background-color: aqua;
+}
+.cardItem{
+  width:100%;
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid rgb(131, 57, 57);
+  
+}
+.imgItem{
+  width: 80%;
+  height: auto;
   padding: 1rem;
+}
+
+.titleProd{
+  text-align: center;
+  font-size: 1.4rem;
+  background-color: #222;
+  color: aliceblue;
+  width: 100%  ;
+
+}
+
+.description{
+  width: 100%;
+  border: 1px solid black;
   text-align: center;
 }

@@ -1,6 +1,7 @@
 import React from "react";
 import Item from "./Item";
 
+
 export default function ItemList({ productos }) {
   return (
     <>
@@ -8,6 +9,7 @@ export default function ItemList({ productos }) {
         {productos.map((producto) => (
         <Item key={producto.id} producto={producto} />
         ))}
+        
     </article>
       
     </>
