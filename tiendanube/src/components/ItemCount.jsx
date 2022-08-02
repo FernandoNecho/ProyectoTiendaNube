@@ -1,5 +1,6 @@
 import {useState} from 'react'
 
+
 const ItemCount = ({ initial, stock, onAdd }) => {
     const [ count, setCount ] = useState(initial)
 
@@ -13,9 +14,14 @@ const ItemCount = ({ initial, stock, onAdd }) => {
             setCount( count - 1 )
         }
     }
-
     const agregar = () => {
-        onAdd( count )
+        if(stock===0){
+            alert("producto sin stock")
+        }
+        else{
+
+            onAdd(count)
+        }
     }
 
     return (

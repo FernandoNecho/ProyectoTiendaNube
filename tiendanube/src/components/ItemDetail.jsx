@@ -1,10 +1,10 @@
 import ItemCount from "../components/ItemCount"
 
+const onAdd=(count)=>alert(`Agregaste ${count} item(s) al carrito`);
 
 
 export default function ItemDetail({productos}) {
-    console.log("i:", productos)
-
+   
     return (
         
         <div className="itemContainer">              
@@ -17,7 +17,7 @@ export default function ItemDetail({productos}) {
                     <p className="detalle">Remera de Leon Rey con corona colección Furious</p>
                     <p>Telles: S/M/L/XL/XXL</p>
                     <p>Precio: $ {productos.precio}</p>
-                    <ItemCount initial={1} stock={6} />
+                    <ItemCount initial={1} stock={6} onAdd={onAdd}/>
                 </section>
             
         </div>
