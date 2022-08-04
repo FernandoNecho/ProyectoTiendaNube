@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 
 export default function Item({ producto }) {
   
@@ -10,7 +10,9 @@ export default function Item({ producto }) {
         <figcaption>
           {producto.title}
           <p className="price">Precio: ${producto.precio}</p>
-          <p className="detail">Detalles del Producto</p>
+          <Link to={"/producto/"+producto.id}><p className="detail">Detalles del Producto</p>
+          </Link>
+          
         </figcaption>
     </figure>
 

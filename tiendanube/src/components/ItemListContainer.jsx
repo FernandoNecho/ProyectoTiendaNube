@@ -137,7 +137,7 @@ const ItemListContainer=(props)=>{
         title: "Campera termica",
         url: "../assets/camperaTermica.jpg",
         precio: 800,
-        idCategoria: "campera"
+        idCategoria: "campera",
       }
     ]; 
 

@@ -37,24 +37,38 @@ img{
 /******Componente Title*****/
 .title {
   text-align: center;
-  background-color: aqua;
   padding: 0.5rem;
+  color: black;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 2.5rem;
 }
 
+.title::first-letter{
+  color: blue;
+}
+.linkTitle{
+  text-decoration: none;
+}
+ /*****Logo****/
+ .logo{
+  width: 10vh;
+  margin-left: 1rem;
+ }
 /*********Component Nav*******/
 .menu{
   display:flex;
   flex-direction:column;
   justify-content: center;
-  background-color: aqua;
+  
 }
 
 .buyCart{
   display: grid;
-  grid-template-columns: 9fr 1fr;
+  grid-template-columns:1fr 8fr 1fr;
   align-content: center;
   align-items: center;
   justify-content: center;
+  background-color: aqua;
 }
 .menuRef{
   width: 100%;
@@ -69,19 +83,20 @@ img{
   color: black;
   padding: 0.5rem;
   font-size: 1.2rem;
-  border-bottom: 3px solid transparent;
+  border-bottom: 3.5px solid transparent;
 }
 
 
 
 .menuRef>*:hover{
-  border-bottom: 3px solid white;
+  border-bottom: 3.5px solid white;
+  font-weight: bold;
 }
 
 /**********Imagen Carrito Compra*********/
 .imgLogo{
   height: auto;
-  width: 3rem;
+  width: 2.5rem;
 }
 
 #h2{
