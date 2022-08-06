@@ -27,9 +27,9 @@ export default function ItemDetail({productos}) {
                         <button className="addBtn">Ir al Cart</button>
                     </Link> 
                     :
-                    <ItemCount initial={1} stock={10} onAdd={onAdd} />
+                    <ItemCount initial={1} stock={6} onAdd={onAdd} />
                 }
-                
+
             </section>
             
         </div>
