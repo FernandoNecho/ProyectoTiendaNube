@@ -12,7 +12,7 @@ const Navbar = ()=>{
                 <Link to={"/categoria/remera"}>Remeras</Link>
                 <Link to={"/categoria/pantalon"}>Pantalones</Link>
                 <Link to={"/categoria/campera"}>Camperas</Link>
-                <Link to={"/test"}>Contacto</Link>
+                <Link to={"/card"}>Contacto</Link>
             </div>               
         </div>    
     )

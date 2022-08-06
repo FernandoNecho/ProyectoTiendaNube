@@ -1,10 +1,14 @@
+import { useState } from "react";
 import ItemCount from "../components/ItemCount"
-
-const onAdd=(count)=>alert(`Agregaste ${count} item(s) al carrito`);
+import { Link } from "react-router-dom"
 
 
 export default function ItemDetail({productos}) {
-   
+   const [amount, setAmount]=useState(0)
+   const onAdd=(count)=>{
+    alert(`Agregaste ${count} item(s) al carrito`);
+    setAmount(count)
+};
     return (
         
         <div className="itemContainer">              
@@ -17,7 +21,15 @@ export default function ItemDetail({productos}) {
                 <p className="detalle">Remera de Leon Rey con corona colección Furious</p>
                 <p>Telles: S/M/L/XL/XXL</p>
                 <p>Precio: $ {productos.precio}</p>
-                <ItemCount initial={1} stock={6} onAdd={onAdd}/>
+
+                { amount ?
+                    <Link to='/cart'>
+                        <button className="addBtn">Ir al Cart</button>
+                    </Link> 
+                    :
+                    <ItemCount initial={1} stock={10} onAdd={onAdd} />
+                }
+                
             </section>
             
         </div>

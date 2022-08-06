@@ -144,21 +144,19 @@ const ItemDetailContainer = () => {
     
     const promesa = new Promise((resolve, rej) => {
       setTimeout(() => {
-        //resolve(productosHardcore)
         resolve(productosHardcore.filter(producto=>producto.id===JSON.parse(id)))
-        console.log(id)
       }, 300);                   
     })  
     
     promesa.then((res) => {
-      setProducto(...res);
-          
+      setProducto(...res);         
     })
   }
 
   useEffect(() => {   
-      getItem(id)
-  }, [id]);
+    getItem(id);
+  });
+
   return <ItemDetail productos={producto} />;
 }
 
