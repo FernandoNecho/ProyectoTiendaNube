@@ -9,14 +9,15 @@ function CartContextProvider({children}) {
     const [cartList, setCartList] = useState([])
 
     const agregarCart = (item) => {
-
-        // if no admita duplicados
-        setCartList( [ ...cartList, item ] )
+       //compruebo si el item no se agrego al cart
+        if (isInCart(item)) {         
+            setCartList( [ ...cartList, item ] )
+        }
     }
 
-    // const isInCart = (item) => {
-    //     return cartList.find(manga => manga.id === item.id) === undefined;
-    // }
+     const isInCart = (item) => {
+         return cartList.find(itemd => itemd.id === item.id) === undefined;
+    }
 
 
     const precioTotal = () => {
