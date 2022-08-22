@@ -1,16 +1,16 @@
 /*******Reset CSS***********/
 
-:root{
+:root {
   --main-font: sans-serif;
   --font-size: 16px;
   --main-color: grey;
   --second-color: aqua;
   --main-modal-color: rgba(255, 68, 0, 0.85);
-  --second-modal-color: rgba(34,34,34,0.85);
+  --second-modal-color: rgba(34, 34, 34, 0.85);
   --container-width: 1200px;
 }
 
-html{
+html {
   box-sizing: border-box;
   font-family: var(--main-font);
   font-size: var(--font-size);
@@ -19,66 +19,63 @@ html{
 
 *,
 *:before,
-*:after{
+*:after {
   box-sizing: inherit;
 }
 
-body{
+body {
   margin: 0;
   overflow-x: hidden;
 }
 
-img{
+img {
   max-width: 100%;
   height: auto;
 }
-
 
 /******Componente Title*****/
 .title {
   text-align: center;
   padding: 0.5rem;
   color: black;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
   font-size: 2.5rem;
 }
 
-.title::first-letter{
+.title::first-letter {
   color: blue;
 }
-.linkTitle{
+.linkTitle {
   text-decoration: none;
 }
- /*****Logo****/
- .logo{
+/*****Logo****/
+.logo {
   width: 10vh;
   margin-left: 1rem;
- }
+}
 /*********Component Nav*******/
-.menu{
-  display:flex;
-  flex-direction:column;
+.menu {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  
 }
 
-.buyCart{
+.buyCart {
   display: grid;
-  grid-template-columns:1fr 8fr 1fr;
+  grid-template-columns: 1fr 8fr 1fr;
   align-content: center;
   align-items: center;
   justify-content: center;
   background-color: aqua;
 }
-.menuRef{
+.menuRef {
   width: 100%;
   background-color: rgb(66, 181, 209);
   display: flex;
   justify-content: center;
   align-items: center;
-  
 }
-.menuRef>*{
+.menuRef > * {
   text-decoration: none;
   color: black;
   padding: 0.5rem;
@@ -86,37 +83,35 @@ img{
   border-bottom: 3.5px solid transparent;
 }
 
-
-
-.menuRef>*:hover{
+.menuRef > *:hover {
   border-bottom: 3.5px solid white;
   font-weight: bold;
 }
 
 /**********Imagen Carrito Compra*********/
-.imgLogo{
+.imgLogo {
   height: auto;
   width: 2.5rem;
 }
 
-#h2{
+#h2 {
   color: black;
 }
 
 /*************boton Add Cart************/
 
-.addCart{
+.addCart {
   width: 20vw;
   margin-left: auto;
   margin-right: auto;
   margin-top: 4rem;
-  
+
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
 }
 
-.countItem{
+.countItem {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -125,7 +120,7 @@ img{
   border-radius: 4rem;
 }
 
-.countItem button{
+.countItem button {
   width: 3.3rem;
   height: 3.3rem;
   padding: 0.5rem;
@@ -137,17 +132,17 @@ img{
   font-weight: bold;
 }
 
-.countItem button:hover, .addBtn:hover{
+.countItem button:hover,
+.addBtn:hover {
   background-color: #222;
 }
-.countItem p{
+.countItem p {
   text-align: center;
   color: black;
   font-weight: bold;
- 
 }
 
-.addBtn{
+.addBtn {
   width: 80%;
   text-align: center;
   padding: 0.5rem;
@@ -163,15 +158,14 @@ img{
   border-radius: 4rem;
 }
 
-
 /*********Item Productos*******************/
-.cards{
+.cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 10fr));
   grid-template-rows: auto;
 }
 
-.card{
+.card {
   background-color: var(--second-color);
   color: var(--main-color);
   overflow: hidden;
@@ -179,22 +173,21 @@ img{
   margin-bottom: 2.5rem;
 }
 
-
-.imgCard{
+.imgCard {
   width: 100%;
   max-height: 300px;
 }
 
-.card:hover{
+.card:hover {
   box-shadow: 2px 2px 2px 1.5px rgba(0, 0, 0, 0.4);
 }
-.card figcaption{
-  padding: .8rem;
+.card figcaption {
+  padding: 0.8rem;
   text-align: center;
   margin-bottom: 0.5rem;
 }
 
-.price{
+.price {
   text-align: center;
   background-color: rgb(66, 181, 209);
   width: 60%;
@@ -202,10 +195,9 @@ img{
   margin-left: auto;
   margin-right: auto;
   color: white;
-  
 }
 
-.detail{
+.detail {
   background-color: white;
   padding: 0.5rem;
   border: 1px solid var(--main-color);
@@ -215,13 +207,12 @@ img{
   box-shadow: 2px 2px 2px 1.5px rgba(0, 0, 0, 0.4);
 }
 
-.detail:hover{
+.detail:hover {
   box-shadow: none;
 }
 
-
 /******Item detail Container*****/
-.itemContainer{
+.itemContainer {
   width: 60vw;
   margin: 4rem auto 2rem auto;
   display: grid;
@@ -231,39 +222,37 @@ img{
   border: 1px solid black;
   background-color: aqua;
 }
-.cardItem{
-  width:100%;
+.cardItem {
+  width: 100%;
   height: 100%;
   margin: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   border: 1px solid rgb(131, 57, 57);
-  
 }
-.imgItem{
+.imgItem {
   width: 80%;
   height: auto;
   padding: 1rem;
 }
 
-.titleProd{
+.titleProd {
   text-align: center;
   font-size: 1.4rem;
   background-color: #222;
   color: aliceblue;
-  width: 100%  ;
-
+  width: 100%;
 }
 
-.description{
+.description {
   width: 100%;
   border: 1px solid black;
   text-align: center;
 }
 
 /**********Form Buy****/
-.buyContainer{
+.buyContainer {
   width: 80%;
   margin-left: auto;
   margin-right: auto;
@@ -274,17 +263,17 @@ img{
   align-items: center;
 }
 
-.formBuy input{
+.formBuy input {
   width: 100%;
 }
 
-.itemLink{
+.itemLink {
   text-decoration: none;
 }
 
-.itemCount{
+.itemCount {
   border-radius: 1rem;
-  color:white;
+  color: white;
   padding: 0 0.5rem;
   background-color: black;
 }

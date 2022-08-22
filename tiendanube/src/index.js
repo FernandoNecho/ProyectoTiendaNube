@@ -1,8 +1,8 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
@@ -16,13 +16,13 @@ const firebaseConfig = {
   projectId: "ecommercecoder-b73cf",
   storageBucket: "ecommercecoder-b73cf.appspot.com",
   messagingSenderId: "118824726638",
-  appId: "1:118824726638:web:4cff9c0fd9821ee2a9f67f"
+  appId: "1:118824726638:web:4cff9c0fd9821ee2a9f67f",
 };
 
 // Initialize Firebase
 initializeApp(firebaseConfig);
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <App />

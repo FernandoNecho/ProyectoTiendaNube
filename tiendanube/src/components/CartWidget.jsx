@@ -1,11 +1,9 @@
-
 function CartWidget() {
-    
-    return (
-        <>
-            <img src="../assets/shopping-cart.png" alt="" className="imgLogo" />   
-        </>
-    )
+  return (
+    <>
+      <img src="../assets/shopping-cart.png" alt="" className="imgLogo" />
+    </>
+  );
 }
 
 export default CartWidget;
