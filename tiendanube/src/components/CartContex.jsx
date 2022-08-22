@@ -15,7 +15,7 @@ function CartContextProvider({ children }) {
   };
 
   const isInCart = (item) => {
-    return cartList.find((itemFind) => itemFind.id === item.id) === undefined;
+    return cartList.find((itemFind) => (itemFind.id === item.id)) === undefined;
   };
 
   const precioTotal = () => {

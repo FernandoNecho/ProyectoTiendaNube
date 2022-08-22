@@ -277,3 +277,16 @@ img {
   padding: 0 0.5rem;
   background-color: black;
 }
+
+/********Logo Loader*******/
+
+.loaderLogo{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 5rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2rem;
+}

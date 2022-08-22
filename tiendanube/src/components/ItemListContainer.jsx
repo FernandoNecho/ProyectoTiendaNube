@@ -9,8 +9,9 @@ import {
   where,
 } from "firebase/firestore";
 
-export default function  ItemListContainer(){
+export default function ItemListContainer() {
   const [productos, setProductos] = useState([]);
+  const [loading, setLoading] = useState(true);
   const { idCategoria } = useParams();
 
   useEffect(() => {
@@ -30,7 +31,8 @@ export default function  ItemListContainer(){
             }))
           )
         )
-        .catch((err) => console.log(err));
+        .catch((err) => console.log(err))
+        .finally(() => setLoading(false));
     } else {
       const queryColection = collection(db, "productos");
       getDocs(queryColection)
@@ -42,10 +44,17 @@ export default function  ItemListContainer(){
             }))
           )
         )
-        .catch((err) => console.log(err));
+        .catch((err) => console.log(err))
+        .finally(() => setLoading(false));
     }
   }, [idCategoria]);
-  return <ItemList productos={productos} />;
-};
-
-
+  return (
+    <>
+      {loading ? (
+        <img src="../assets/loader.svg" alt="Cargando" className="loaderLogo" />
+      ) : (
+        <ItemList productos={productos} />
+      )}
+    </>
+  );
+}

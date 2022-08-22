@@ -17,12 +17,8 @@ function Cart() {
   const [id, setId] = useState("");
 
   const { cartList, vaciarCart, precioTotal, removeItem } = useCartContext();
-  /************* */
-
-  console.log("cartList", cartList);
-
-  /************** */
-  // fucntion {}
+ 
+  // function {}
   const generarOrden = (e) => {
     e.preventDefault();
     // Nuevo objeto de orders
@@ -39,7 +35,7 @@ function Cart() {
 
       return { id, nombre, precio};
     });
-    console.log("orden", orden);
+   
 
     const db = getFirestore()
     const queryCollectionSet = collection(db, 'orden')
@@ -57,7 +53,6 @@ function Cart() {
     });
   };
 
-  console.log(dataForm);
 
   return (
     <div className="buyContainer">

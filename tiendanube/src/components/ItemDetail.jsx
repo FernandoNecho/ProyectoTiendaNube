@@ -5,15 +5,13 @@ import { useCartContext } from "./CartContex";
 
 export default function ItemDetail({ productos }) {
   const [amount, setAmount] = useState(0);
-  const { agregarCart, cartList } = useCartContext();
+  const { agregarCart} = useCartContext();
 
   const onAdd = (count) => {
-    //alert(`Agregaste ${count} item(s) al carrito`);
     setAmount(count);
     agregarCart({ ...productos, cantidad: count });
   };
 
-  console.log(cartList);
   return (
     <div className="itemContainer">
       <figure className="cardItem">
@@ -30,9 +28,16 @@ export default function ItemDetail({ productos }) {
         <p>Precio: $ {productos.precio}</p>
 
         {amount ? (
-          <Link to="/cart">
-            <button className="addBtn">Ir al Carrito</button>
-          </Link>
+          <>
+          <p>"Producto Agregado"</p>
+            <Link to="/cart">
+              <button className="addBtn">Ir al Carrito</button>
+            </Link>
+            
+            <Link to={"/"}>
+              <button className="addBtn">Seguir Comprando</button>
+            </Link>
+          </>
         ) : (
           <ItemCount initial={1} stock={productos.stock} onAdd={onAdd} />
         )}
