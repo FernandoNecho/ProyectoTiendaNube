@@ -263,8 +263,16 @@ img {
   align-items: center;
 }
 
+.formBuy{
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+
+}
 .formBuy input {
   width: 100%;
+  margin-bottom: 1rem;
+  padding: .3rem;
 }
 
 .itemLink {
@@ -289,4 +297,33 @@ img {
   margin-left: auto;
   margin-right: auto;
   margin-top: 2rem;
+}
+
+/********Error formularios****/
+
+.error{
+ font-weight: bold;
+ color: #dc3545;
+ margin: 0 0 1rem 0 ;
+ padding: 0.2rem 1rem;
+ text-align: center;
+
+}
+
+.errorInput {
+  background-color: red;
+  color: white;
+  padding: .5rem;
+  text-align: center;
+  font-weight: bold;
+  margin-top: -1rem;
+  margin-bottom: 1rem;
+}
+
+.none {
+  display: none;
+}
+
+.isActive {
+  display: block;
 }

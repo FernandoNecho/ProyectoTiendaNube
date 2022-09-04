@@ -45,6 +45,7 @@ function CartContextProvider({ children }) {
         precioTotal,
         removeItem,
         cantidadTotalItem,
+        setCartList
       }}
     >
       {children}

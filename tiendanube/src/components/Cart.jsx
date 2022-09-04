@@ -1,13 +1,29 @@
 import { useState } from "react";
 import { useCartContext } from "./CartContex";
-import { 
-  addDoc, 
-  collection, 
-  getFirestore
-   
-} from "firebase/firestore";
+import { addDoc, collection, getFirestore } from "firebase/firestore";
 
 
+
+function Validate(dataForm){
+  let regexName = /^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\\s]+.{1,15}(.[^0-9])$/;
+  let regexEmail =  /^(\w+[/./-]?){1,}@[a-z]+[/.]\w{2,}$/;
+  let regexPhone = /^.{6,12}$/;
+  let errors={}
+  if (dataForm.name) {   
+    errors.name=!regexName.test(dataForm.name);
+  }    
+  
+  if(dataForm.phone){
+    errors.phone=!regexPhone.test(dataForm.phone);
+  }
+
+  if(dataForm.email){
+    errors.email=!regexEmail.test(dataForm.email)
+  }
+    
+  
+ return errors;
+}
 function Cart() {
   const [dataForm, setDataForm] = useState({
     email: "",
@@ -15,35 +31,45 @@ function Cart() {
     phone: "",
   });
   const [id, setId] = useState("");
+  const [errors, setErrors] = useState({});
+  const [loading, setLoading] = useState(false);
+  const [title, setTitle] = useState(false);
+  const { cartList, vaciarCart, precioTotal, removeItem, setCartList } = useCartContext();
 
-  const { cartList, vaciarCart, precioTotal, removeItem } = useCartContext();
- 
-  // function {}
-  const generarOrden = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    // Nuevo objeto de orders
-    let orden = {};
+    setLoading(true);
+    //setErrors(Validate(dataForm));
+    if (Object.keys(errors).length === 0) {
+      // Nuevo objeto de orders
+      let orden = {};
 
-    orden.buyer = dataForm;
-    orden.date = new Date();
-    orden.total = precioTotal();
+      orden.buyer = dataForm;
+      orden.date = new Date();
+      orden.total = precioTotal();
 
-    orden.items = cartList.map((cartItem) => {
-      const id = cartItem.id;
-      const nombre = cartItem.title;
-      const precio = cartItem.precio * cartItem.cantidad;
+      orden.items = cartList.map((cartItem) => {
+        const id = cartItem.id;
+        const nombre = cartItem.title;
+        const precio = cartItem.precio * cartItem.cantidad;
 
-      return { id, nombre, precio};
-    });
-   
+        return { id, nombre, precio };
+      });
 
-    const db = getFirestore()
-    const queryCollectionSet = collection(db, 'orden')
-    addDoc(queryCollectionSet, orden)
-    .then(resp => setId(resp.id))
-    .catch(err => console.error(err))
-    .finally(() => console.log('termino '))
-
+      const db = getFirestore();
+      const queryCollectionSet = collection(db, "orden");
+      addDoc(queryCollectionSet, orden)
+        .then((resp) => {
+          setLoading(false);
+          setId(resp.id);
+          setDataForm({});
+          setCartList([]);
+        })
+        .catch((err) => console.error(err))
+        .finally(() => console.log("termino "));
+    } else {
+      return;
+    }
   };
 
   const handleChange = (e) => {
@@ -53,7 +79,23 @@ function Cart() {
     });
   };
 
+  const handleBlur = (e) => {
+    handleChange(e);
+    setErrors(Validate(dataForm));
+  };
 
+  const handleKeyUp = (e) => {
+    handleChange(e);
+    setTitle({
+      ...title,
+      [e.target.name]: e.target.title,
+    })
+    setErrors(Validate(dataForm));
+  };
+
+/***************** */
+
+/***************** */
   return (
     <div className="buyContainer">
       {id.length !== ""}
@@ -75,35 +117,55 @@ function Cart() {
       </div>
       <hr />
       <button onClick={vaciarCart}>VaciarCarrto</button>
-      <hr/>
-      <form onSubmit={generarOrden} className="formBuy" id="form">
-        <input
-          type="text"
-          name="name"
-          placeholder="name"
-          value={dataForm.name}
-          onChange={handleChange}
-        />
-        <br />
-        <input
-          type="text"
-          name="phone"
-          placeholder="tel"
-          value={dataForm.phone}
-          onChange={handleChange}
-        />
-        <br />
-        <input
-          type="email"
-          name="email"
-          placeholder="email"
-          value={dataForm.email}
-          onChange={handleChange}
-        />
-        <br /><br />
-        {/* <button>Generar Orden</button> */}
-        <button>Terminar Compra</button>
-      </form>
+      <hr />
+      {loading ? (
+        <img src="../assets/loader.svg" alt="Cargando" className="loaderLogo" />
+      ) : (
+        <form onSubmit={handleSubmit} className="formBuy" id="form">
+          <input
+            type="text"
+            name="name"
+            placeholder="Escribe tu nombre"
+            title="Nombre debe contener solo letras "
+            value={dataForm.name}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            onKeyUp={handleKeyUp}
+  
+            required
+          />
+          {errors.name?<span  className="isActive errorInput">{title.name}</span>: <span  className="none"></span>}
+          
+          <input
+            type="number"
+            name="phone"
+            placeholder="Telefono de contacto"
+            title = "Ingrese un telefono Valido(min 6 caracteres)"
+            value={dataForm.phone}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            onKeyUp={handleKeyUp}
+            required
+          />
+          {errors.phone?<span  className="isActive errorInput">{title.phone}</span>: <span  className="none"></span>}
+          
+          <input
+            type="email"
+            name="email"
+            placeholder="email de contacto"
+            title = "Formato  de Email Incorrecto"
+            value={dataForm.email}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            onKeyUp={handleKeyUp}
+            required
+          />
+          {errors.email?<span  className="isActive errorInput">{title.email}</span>: <span  className="none"></span>}
+
+          {/* <button>Generar Orden</button> */}
+          <input type="submit" value="Terminar compra" />
+        </form>
+      )}
     </div>
   );
 }
