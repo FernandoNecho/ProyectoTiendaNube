@@ -1,5 +1,11 @@
 # Getting Started with Create React App
 
+###
+se crea tiena de ropa, se siguen los lineamientos requeridos.
+se agrega validacion a formulario
+se agrega ventana modal para mostrar producto sin stock(en este caso campera polar)
+
+###
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

@@ -1,9 +1,12 @@
 import { useState } from "react";
+import { useModal } from "./useModal";
+import Modal from "./Modal";
 
 
-const ItemCount = ({ initial, stock, onAdd }) => {
+const ItemCount = ({ initial, stock, onAdd , producto}) => {
   const [count, setCount] = useState(initial);
-
+  const [isOpen, openModal, closeModal] = useModal(false);
+  
   const sumar = () => {
     if (count < stock) {
       setCount(count + 1);
@@ -16,7 +19,7 @@ const ItemCount = ({ initial, stock, onAdd }) => {
   };
   const agregar = () => {
     if (stock === 0) {
-      alert("producto sin stock");
+      openModal()
     } else {
       onAdd(count);
     }
@@ -33,6 +36,16 @@ const ItemCount = ({ initial, stock, onAdd }) => {
       <button onClick={agregar} className="addBtn">
         Adherir al Carrito
       </button>
+      <div>
+      {isOpen &&
+      <Modal isOpen={isOpen} closeModal={closeModal}>
+        <h2>"Producto sin stock"</h2>
+        <p>
+          {producto.title}
+        </p>
+        <img src={producto.url} alt={producto.title}/>
+      </Modal>}
+    </div>
     </div>
   );
 };

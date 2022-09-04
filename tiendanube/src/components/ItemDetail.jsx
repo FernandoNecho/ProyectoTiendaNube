@@ -39,7 +39,7 @@ export default function ItemDetail({ productos }) {
             </Link>
           </>
         ) : (
-          <ItemCount initial={1} stock={productos.stock} onAdd={onAdd} />
+          <ItemCount initial={1} stock={productos.stock} onAdd={onAdd} producto={productos} />
         )}
       </section>
     </div>
