@@ -40,7 +40,7 @@ function Cart() {
     e.preventDefault();
     setLoading(true);
     //setErrors(Validate(dataForm));
-    if (Object.keys(errors).length === 0) {
+    
       // Nuevo objeto de orders
       let orden = {};
 
@@ -67,9 +67,7 @@ function Cart() {
         })
         .catch((err) => console.error(err))
         .finally(() => console.log("termino "));
-    } else {
-      return;
-    }
+   
   };
 
   const handleChange = (e) => {
